@@ -9,7 +9,7 @@ module Watir
       end
     end
 
-    def verify(*args)
+    def verify_value(*args)
       if args[0].to_s.upcase != "<SKIP>" then
         assert_exists
         actual_value = @element.text
@@ -20,5 +20,16 @@ module Watir
         end
       end
     end
+
+
+=begin
+    def set_jquery(input,method)
+       if strInput != "<SKIP>" then
+    	   self.set input
+    	   $b.runScript(cleanjQueryQuotes(method))
+    	end
+    end
+=end
+
   end
 end

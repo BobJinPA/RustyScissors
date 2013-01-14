@@ -1,7 +1,7 @@
 module Watir
   module Container
 
-    def verify(*args)
+    def verify_value(*args)
       if args[0].to_s.upcase != "<SKIP>" then
         assert_exists
         actual_value = self.text

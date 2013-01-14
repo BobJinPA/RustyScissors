@@ -10,11 +10,11 @@ module Watir
     end
 
     def get_column_names
-      column_name = Array.new
+      column_names = Array.new
       self.ths.each do |heading|
-        column_name.push heading.text
+        column_names.push heading.text
       end
-      column_name
+      column_names
     end
 
     def get_column(column_name)
