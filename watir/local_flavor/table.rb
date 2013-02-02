@@ -8,9 +8,10 @@ module Watir
         column_hash.merge!(column => self.get_column(column))
       end
       puts column_hash
-
+      puts self.class
+      puts self.row_count
       @selected_row = -1
-      for i in (1...self.size)
+      for i in (1...self.row_count)
         puts i
         if self[i][column_hash["Languages"]] =~ /Clojure/ then
           @selected_row = i

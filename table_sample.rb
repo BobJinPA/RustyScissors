@@ -9,7 +9,8 @@ $b.goto 'http://en.wikipedia.org/wiki/Comparison_of_programming_languages_(strin
 #identify compare table
 index_table = $b.table(:class => 'wikitable sortable jquery-tablesorter')
 
-=begin
+
+
 #when language is 'VB', verify index method is 'Mid(string,i,1)'
 list_of_columns = "Format;Languages"
 #create hash of columns and positions
@@ -51,7 +52,8 @@ end
 puts @row2
 actual_value = table_array[@row2][column_hash["Format"]]
 puts actual_value
-=end
+
+
 
 
 index_table.get_table_row("Format;Languages", 'x')

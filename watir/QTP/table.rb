@@ -22,11 +22,34 @@ module Watir
     end
 
     def get_cell_data(row, col)
-        if col.is_a? String then
-          col = get_column(col)
-        end
-        self.tr(:index=>row).td(:index=>col).text
+      if col.is_a? String then
+        col = get_column(col)
+      end
+      self.tr(:index => row).td(:index => col).text
     end
+
+
+
+    def to_a
+      #create an array of the table. One element for each cell
+      doc = Nokogiri::HTML.parse(self.html)
+      dataArray = Array.new()
+      doc.xpath("//td").each do |element|
+        dataArray << (element.text)
+      end
+      #this converts one dim array to two dims
+      table_array = Array.new
+      for i in (0...self.row_count)
+        tinyArray = Array.new
+        for j in (0...3)     #3 should be index_table.column_count
+          tinyArray << dataArray[0]
+          dataArray.delete_at(0)
+        end
+        table_array << tinyArray
+      end
+      table_array
+    end
+
 
   end
 end
