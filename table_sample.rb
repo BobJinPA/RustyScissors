@@ -1,7 +1,7 @@
 require 'watir-webdriver'
 require_relative 'watir/init'
 
-$b = Watir::Browser.new :ie
+$b = Watir::Browser.new :ff
 
 # open wiki page
 $b.goto 'http://en.wikipedia.org/wiki/Comparison_of_programming_languages_(string_functions)'
