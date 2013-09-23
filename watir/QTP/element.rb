@@ -38,5 +38,7 @@ module Watir
       WindowsInput.move_mouse(x + 2, y + 2)
       WindowsInput.left_click
     end
+
+
   end
 end
