@@ -2,6 +2,7 @@
 module Watir
   class CheckBox
     alias_method :orig_set, :set
+    alias_method :orig_click, :click
 
     def set(*args)
       if args[0].to_s.upcase != '<SKIP>' then
