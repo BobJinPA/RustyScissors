@@ -41,7 +41,7 @@ module Watir
       table_array = Array.new
       for i in (0...self.row_count)
         tinyArray = Array.new
-        for j in (0...self.column_count)     #3 should be index_table.column_count
+        for j in (0...self.column_count) #3 should be index_table.column_count
           tinyArray << dataArray[0]
           dataArray.delete_at(0)
         end
@@ -59,10 +59,28 @@ module Watir
       end
     end
 
+    def child_item(row, col, type, index)
+      cell = self.tr(:index => row).td(:index => col)
+      begin
+        child = cell.send("#{type}".to_sym, :index => index)
+      rescue
+        puts "Error setting child element"
+      end
+      if child.exists?
+        child
+      else
+        puts "Could not find element of type: #{type} or there are not #{index} elements of that type"
+      end
+    end
 
-
-
-
+    def child_item_count(row, col, type)
+      cell = self.tr(:index => row).td(:index => col)
+      begin
+        cell.send("#{type}".to_sym).length
+      rescue
+        puts "Error obtaining count for type"
+      end
+    end
 
   end
 end
