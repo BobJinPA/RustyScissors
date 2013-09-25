@@ -11,7 +11,7 @@ module Watir
 
     def getROProperty (property)
       case property
-        when 'selected'
+        when 'checked'
           return self.set?
       end
     end
