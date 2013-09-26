@@ -8,5 +8,21 @@ module Watir
         orig_select(args[0])
       end
     end
+
+    def VerifyContains(strVerificationName, strExpectedValue)
+      strActualValue = self.getROProperty('all items')
+      Common::compareList_Contains(strVerificationName, strActualValue, strExpectedValue)
+    end
+
+    def VerifyOnlyContains(strVerificationName, strExpectedValue)
+      strActualValue = self.getROProperty('all items')
+      Common::compareList_OnlyContains(strVerificationName, strActualValue, strExpectedValue)
+    end
+
+    def VerifyDoesNotContain(strVerificationName, strExpectedValue)
+      strActualValue = self.getROProperty('all items')
+      Common::compareList_DoesNotContain(strVerificationName, strActualValue, strExpectedValue)
+    end
+
   end
 end
